@@ -250,7 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalCloseBtn = document.getElementById('modal-close-btn');
     const typedTextEl = document.getElementById('typed-text');
 
-    const defaultMessage = `"Hoy 21 de septiembre te entrego estas flores amarillas virtuales con todo mi cariño. Que nunca falte la luz, la alegría y la magia en tus días. ¡Eres una persona sumamente especial!"`;
+    const defaultMessage = `"Mariana, hoy 21 de septiembre te entrego estas flores amarillas que preparé para ti con todo mi corazón. Que nunca falte la luz, la alegría y esa sonrisa hermosa que ilumina mis días, mi bella Rashell. ¡Eres la persona más especial de mi vida y te quiero muchísimo!"`;
 
     function typeWriter(text) {
         if (!typedTextEl) return;
@@ -287,12 +287,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const gardenFinalMsg = document.getElementById('garden-final-msg');
 
     const reasons = [
-        "Por la luz que le das a mis días con tu energía única.",
-        "Por tus abrazos sinceros que hacen que todo esté bien.",
-        "Por compartir tus risas y momentos inolvidables.",
-        "Por tu bondad y la paciencia hermosa que siempre tienes.",
-        "Por motivarme a ser una mejor versión cada día.",
-        "¡Simplemente por existir y ser exactamente quien eres!"
+        "Mariana, por la luz tan hermosa que le das a mis días con tu sonrisa.",
+        "Rashell, por tus abrazos sinceros que hacen que todo mi mundo esté bien.",
+        "Por cada risa, llamada y momento inolvidable que compartimos juntos, mi bella Mariana.",
+        "Rashell, por tu bondad, tu ternura y la paciencia tan linda que siempre me tienes.",
+        "Porque a tu lado me inspiras a ser una mejor persona cada día, Mariana.",
+        "¡Simplemente por existir, mi dulce Rashell, y por ser el regalo más bonito de mi vida!"
     ];
 
     let bloomedCount = 0;
@@ -372,7 +372,11 @@ document.addEventListener('DOMContentLoaded', () => {
         e.stopPropagation();
         welcomeModal?.classList.add('fade-out');
         startMusic();
-        triggerPetalShower();
+        
+        // 7 oleadas instantáneas (sin espaciado) de lluvia de pétalos
+        for (let i = 0; i < 7; i++) {
+            triggerPetalShower();
+        }
     });
 
     // Fallback auto-play music on first click anywhere
