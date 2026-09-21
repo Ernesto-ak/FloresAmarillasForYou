@@ -119,77 +119,116 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const flowerSVGs = {
         girasol: `
-            <svg width="70" height="140" viewBox="0 0 70 140">
-                <path d="M35,60 Q35,100 35,140" stroke="#52b788" stroke-width="6" fill="none"/>
-                <path d="M35,90 Q15,80 10,95 Q25,105 35,95" fill="#52b788"/>
-                <circle cx="35" cy="40" r="14" fill="#3d2600"/>
-                <!-- Petals -->
-                <g fill="#ffb703">
-                    <ellipse cx="35" cy="14" rx="5" ry="12"/>
-                    <ellipse cx="35" cy="66" rx="5" ry="12"/>
-                    <ellipse cx="9" cy="40" rx="12" ry="5"/>
-                    <ellipse cx="61" cy="40" rx="12" ry="5"/>
-                    <ellipse cx="17" cy="22" rx="6" ry="12" transform="rotate(-45 17 22)"/>
-                    <ellipse cx="53" cy="58" rx="6" ry="12" transform="rotate(-45 53 58)"/>
-                    <ellipse cx="53" cy="22" rx="6" ry="12" transform="rotate(45 53 22)"/>
-                    <ellipse cx="17" cy="58" rx="6" ry="12" transform="rotate(45 17 58)"/>
+            <svg width="80" height="200" viewBox="0 0 80 200">
+                <path d="M40,40 Q38,120 40,195" stroke="#3a7d44" stroke-width="5" stroke-linecap="round" fill="none"/>
+                <path d="M40,110 Q28,95 22,112 Q32,125 40,118" fill="#2d6a4f"/>
+                <path d="M40,140 Q52,125 58,142 Q48,155 40,148" fill="#2d6a4f"/>
+                <path d="M40,40 L10,20 Q5,40 25,50 Z" fill="#2d6a4f"/>
+                <path d="M40,40 L70,20 Q75,40 55,50 Z" fill="#2d6a4f"/>
+                <g fill="#ffd166">
+                    <ellipse cx="40" cy="14" rx="6" ry="14"/>
+                    <ellipse cx="40" cy="66" rx="6" ry="14"/>
+                    <ellipse cx="14" cy="40" rx="14" ry="6"/>
+                    <ellipse cx="66" cy="40" rx="14" ry="6"/>
+                    <ellipse cx="21" cy="21" rx="7" ry="14" transform="rotate(-45 21 21)"/>
+                    <ellipse cx="59" cy="59" rx="7" ry="14" transform="rotate(-45 59 59)"/>
+                    <ellipse cx="59" cy="21" rx="7" ry="14" transform="rotate(45 59 21)"/>
+                    <ellipse cx="21" cy="59" rx="7" ry="14" transform="rotate(45 21 59)"/>
                 </g>
+                <g fill="#ffb703">
+                    <ellipse cx="40" cy="17" rx="5" ry="11"/>
+                    <ellipse cx="40" cy="63" rx="5" ry="11"/>
+                    <ellipse cx="17" cy="40" rx="11" ry="5"/>
+                    <ellipse cx="63" cy="40" rx="11" ry="5"/>
+                    <ellipse cx="23" cy="23" rx="5" ry="11" transform="rotate(-45 23 23)"/>
+                    <ellipse cx="57" cy="57" rx="5" ry="11" transform="rotate(-45 57 57)"/>
+                    <ellipse cx="57" cy="23" rx="5" ry="11" transform="rotate(45 57 23)"/>
+                    <ellipse cx="23" cy="57" rx="5" ry="11" transform="rotate(45 23 57)"/>
+                </g>
+                <circle cx="40" cy="40" r="15" fill="#3d2600"/>
+                <circle cx="40" cy="40" r="12" fill="#543306" stroke="#fb8500" stroke-width="1.2" stroke-dasharray="2,2"/>
             </svg>`,
         tulipan: `
-            <svg width="60" height="130" viewBox="0 0 60 130">
-                <path d="M30,50 Q30,90 30,130" stroke="#52b788" stroke-width="5" fill="none"/>
-                <path d="M30,80 Q45,70 50,85 Q35,95 30,85" fill="#52b788"/>
-                <path d="M15,45 Q10,15 30,20 Q50,15 45,45 Q30,60 15,45 Z" fill="#ffd166"/>
-                <path d="M22,45 Q30,25 38,45 Q30,55 22,45 Z" fill="#ffb703"/>
+            <svg width="80" height="200" viewBox="0 0 80 200">
+                <path d="M40,45 Q38,120 40,195" stroke="#3a7d44" stroke-width="5" stroke-linecap="round" fill="none"/>
+                <path d="M40,115 Q22,100 16,120 Q34,128 40,115" fill="#2d6a4f"/>
+                <path d="M40,45 Q20,30 15,55 Q35,60 40,45" fill="#2d6a4f"/>
+                <path d="M40,45 Q60,30 65,55 Q45,60 40,45" fill="#2d6a4f"/>
+                <path d="M25,45 Q17,15 40,20 Q63,15 55,45 Q40,62 25,45 Z" fill="#ffd166"/>
+                <path d="M32,45 Q40,22 48,45 Q40,56 32,45 Z" fill="#ffb703"/>
+                <path d="M35,35 Q40,18 45,35 Z" fill="#fb8500"/>
             </svg>`,
         margarita: `
-            <svg width="60" height="120" viewBox="0 0 60 120">
-                <path d="M30,50 Q30,85 30,120" stroke="#52b788" stroke-width="4" fill="none"/>
-                <circle cx="30" cy="35" r="9" fill="#fb8500"/>
-                <g fill="#fffdf0" stroke="#ffb703" stroke-width="1">
-                    <circle cx="30" cy="18" r="7"/>
-                    <circle cx="30" cy="52" r="7"/>
-                    <circle cx="13" cy="35" r="7"/>
-                    <circle cx="47" cy="35" r="7"/>
-                    <circle cx="18" cy="23" r="7"/>
-                    <circle cx="42" cy="47" r="7"/>
-                    <circle cx="42" cy="23" r="7"/>
-                    <circle cx="18" cy="47" r="7"/>
+            <svg width="80" height="200" viewBox="0 0 80 200">
+                <path d="M40,35 Q38,120 40,195" stroke="#3a7d44" stroke-width="5" stroke-linecap="round" fill="none"/>
+                <path d="M40,110 Q56,95 62,115 Q46,125 40,110" fill="#2d6a4f"/>
+                <circle cx="40" cy="42" r="20" fill="#2d6a4f" opacity="0.4"/>
+                <g fill="#fffdf0" stroke="#ffb703" stroke-width="1.5">
+                    <circle cx="40" cy="15" r="7"/>
+                    <circle cx="40" cy="55" r="7"/>
+                    <circle cx="20" cy="35" r="7"/>
+                    <circle cx="60" cy="35" r="7"/>
+                    <circle cx="26" cy="21" r="7"/>
+                    <circle cx="54" cy="49" r="7"/>
+                    <circle cx="54" cy="21" r="7"/>
+                    <circle cx="26" cy="49" r="7"/>
                 </g>
+                <circle cx="40" cy="35" r="10" fill="#fb8500"/>
+                <circle cx="40" cy="35" r="7" fill="#ffb703"/>
             </svg>`,
         rosa: `
-            <svg width="65" height="135" viewBox="0 0 65 135">
-                <path d="M32,55 Q32,95 32,135" stroke="#52b788" stroke-width="5" fill="none"/>
-                <circle cx="32" cy="35" r="18" fill="#ffb703"/>
-                <path d="M20,30 Q32,18 44,30 Q32,50 20,30 Z" fill="#fb8500"/>
-                <path d="M25,25 Q32,35 39,25" stroke="#fff3b0" stroke-width="3" fill="none"/>
+            <svg width="80" height="200" viewBox="0 0 80 200">
+                <path d="M40,37.5 Q38,120 40,195" stroke="#3a7d44" stroke-width="5" stroke-linecap="round" fill="none"/>
+                <path d="M40,115 Q22,100 16,120 Q34,128 40,115" fill="#2d6a4f"/>
+                <path d="M40,45 Q18,35 18,55 Q38,60 40,45" fill="#2d6a4f"/>
+                <path d="M40,45 Q62,35 62,55 Q42,60 40,45" fill="#2d6a4f"/>
+                <circle cx="40" cy="37.5" r="22" fill="#ffb703"/>
+                <path d="M25,32 Q40,15 55,32 Q40,58 25,32 Z" fill="#fb8500"/>
+                <path d="M30,27 Q40,38 50,27" stroke="#fff3b0" stroke-width="3" fill="none"/>
+                <circle cx="40" cy="37.5" r="10" fill="#ffd166"/>
             </svg>`
     };
 
     function addFlower(type) {
-        if (bouquetCount >= 12) return;
+        if (bouquetCount >= 50) return;
         bouquetCount++;
 
-        const wrapper = document.createElement('div');
-        wrapper.className = 'flower-item-svg';
-        wrapper.innerHTML = flowerSVGs[type] || flowerSVGs['girasol'];
+        const idx = bouquetCount;
+        let angle = 0;
+        let layer = Math.floor((idx - 1) / 8);
+        let stepInLayer = (idx - 1) % 8;
 
-        // Random offset and tilt for a realistic bouquet look
-        const offsetX = (Math.random() - 0.5) * 160;
-        const tilt = (Math.random() - 0.5) * 35;
-        const scale = 0.85 + Math.random() * 0.3;
+        if (stepInLayer === 0) {
+            angle = 0;
+        } else {
+            const side = (stepInLayer % 2 === 1) ? -1 : 1;
+            const mag = Math.ceil(stepInLayer / 2) * 12;
+            angle = side * mag;
+        }
 
-        wrapper.style.left = `calc(50% - 30px + ${offsetX}px)`;
-        wrapper.style.transform = `rotate(${tilt}deg) scale(${scale})`;
-        wrapper.style.zIndex = Math.floor(Math.random() * 10);
+        angle += (Math.random() - 0.5) * 4;
+        const translateY = -16 * layer;
+        const scale = (layer === 0 ? 1.05 : Math.max(0.75, 1 - layer * 0.05)) + (Math.random() - 0.5) * 0.05;
 
-        bouquetDisplay.appendChild(wrapper);
+        const el = document.createElement('div');
+        el.className = 'flower-item-svg';
+        el.innerHTML = flowerSVGs[type] || flowerSVGs['girasol'];
+
+        el.style.left = `calc(50% - 40px)`;
+        el.style.bottom = `50px`;
+        el.style.transformOrigin = `40px 190px`;
+        el.style.transform = `translateY(${translateY}px) rotateZ(${angle}deg) scale(${scale})`;
+        el.style.zIndex = 80 - (layer * 12) + (stepInLayer % 3);
+
+        bouquetDisplay.appendChild(el);
     }
 
-    // Add initial flowers
+    // Initial 5 flowers in vase
     addFlower('girasol');
     addFlower('tulipan');
     addFlower('margarita');
+    addFlower('rosa');
+    addFlower('girasol');
 
     addFlowerBtns.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -198,9 +237,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     btnResetBouquet?.addEventListener('click', () => {
-        bouquetDisplay.innerHTML = '';
+        if (bouquetDisplay) bouquetDisplay.innerHTML = '';
         bouquetCount = 0;
     });
+
 
     // ==========================================
     // CARTA Y MODAL
