@@ -578,21 +578,6 @@ body {
     gap: 0.4rem;
 }
 
-.youtube-container {
-    max-width: 500px;
-    margin: 0 auto 2rem auto;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 6px 18px rgba(251, 133, 0, 0.25);
-    border: 2px solid var(--primary-yellow);
-    aspect-ratio: 16 / 9;
-}
-
-.youtube-container iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-}
 
 .song-title {
     font-weight: 600;

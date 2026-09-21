@@ -115,19 +115,14 @@
                     </div>
                 </div>
 
-                <!-- Native Audio Element Fallback -->
+                <!-- Hidden Audio Sources -->
                 <audio id="local-audio" src="musica.mp3" loop></audio>
-
-                <!-- Embedded YouTube Container -->
-                <div class="youtube-container">
-                    <iframe id="yt-player-frame" 
-                        src="https://www.youtube.com/embed/S7gMzYqXIZc?enablejsapi=1&autoplay=1&loop=1&playlist=S7gMzYqXIZc" 
-                        title="Floricienta - Flores Amarillas" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        allowfullscreen>
-                    </iframe>
-                </div>
+                <iframe id="yt-player-frame" 
+                    src="https://www.youtube.com/embed/S7gMzYqXIZc?enablejsapi=1&autoplay=1&loop=1&playlist=S7gMzYqXIZc" 
+                    title="Floricienta - Flores Amarillas" 
+                    style="position: absolute; width: 0; height: 0; border: 0; opacity: 0; pointer-events: none;"
+                    allow="autoplay">
+                </iframe>
 
                 <!-- Polaroid Gallery -->
                 <div class="polaroid-grid">
