@@ -1,0 +1,955 @@
+/* ==========================================
+   FLORES AMARILLAS - ESTILOS PRINCIPALES
+   ========================================== */
+
+:root {
+    --primary-yellow: #ffb703;
+    --dark-yellow: #fb8500;
+    --light-yellow: #fff3b0;
+    --bg-gradient-1: #fffdf0;
+    --bg-gradient-2: #ffeaa7;
+    --accent-green: #52b788;
+    --text-color: #3d2600;
+    --text-muted: #745214;
+    --card-bg: rgba(255, 255, 255, 0.92);
+    --shadow-color: rgba(251, 133, 0, 0.18);
+    --font-heading: 'Caveat', cursive;
+    --font-body: 'Poppins', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    background: linear-gradient(135deg, var(--bg-gradient-1) 0%, var(--bg-gradient-2) 100%);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Background Petals Canvas */
+#petalsCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* App Header & Navigation */
+/* Welcome Overlay Modal */
+.welcome-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle, rgba(255, 253, 240, 0.96) 0%, rgba(255, 234, 167, 0.96) 100%);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.welcome-overlay.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.welcome-card {
+    background: #ffffff;
+    border: 3px solid var(--primary-yellow);
+    border-radius: 30px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    max-width: 480px;
+    width: 100%;
+    box-shadow: 0 20px 50px rgba(251, 133, 0, 0.3);
+    animation: popUpCard 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popUpCard {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.welcome-flower-icon {
+    font-size: 4.5rem;
+    animation: pulseGlow 1.8s infinite ease-in-out;
+    margin-bottom: 0.5rem;
+}
+
+@keyframes pulseGlow {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(255, 183, 3, 0.6)); }
+    50% { transform: scale(1.15); filter: drop-shadow(0 0 20px rgba(251, 133, 0, 0.9)); }
+}
+
+.welcome-card h2 {
+    font-family: var(--font-heading);
+    font-size: 2.4rem;
+    color: var(--dark-yellow);
+    margin-bottom: 0.8rem;
+}
+
+.welcome-card p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 1.8rem;
+    line-height: 1.5;
+}
+
+.welcome-btn {
+    background: linear-gradient(135deg, #ffb703, #fb8500);
+    color: #ffffff;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(251, 133, 0, 0.4);
+    transition: all 0.3s ease;
+    animation: btnPulse 2s infinite;
+}
+
+@keyframes btnPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.04); }
+}
+
+.welcome-btn:hover {
+    transform: scale(1.08) translateY(-3px);
+    box-shadow: 0 12px 30px rgba(251, 133, 0, 0.6);
+}
+
+.app-header {
+    z-index: 10;
+    text-align: center;
+    padding: 2rem 1rem 1rem 1rem;
+    max-width: 900px;
+    width: 100%;
+}
+
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.logo h1 {
+    font-family: var(--font-heading);
+    font-size: 3.2rem;
+    color: var(--text-color);
+    text-shadow: 2px 2px 4px rgba(255, 183, 3, 0.4);
+}
+
+.sunflower-icon {
+    font-size: 2.8rem;
+    animation: bounce 2s infinite ease-in-out;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-8px) rotate(10deg); }
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-top: 0.2rem;
+    font-weight: 400;
+}
+
+/* Navigation Tabs */
+.nav-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-top: 1.5rem;
+}
+
+.tab-btn {
+    background: var(--card-bg);
+    border: 2px solid var(--primary-yellow);
+    color: var(--text-color);
+    padding: 0.6rem 1.1rem;
+    border-radius: 25px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px var(--shadow-color);
+}
+
+.tab-btn:hover {
+    background: var(--primary-yellow);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.tab-btn.active {
+    background: var(--dark-yellow);
+    border-color: var(--dark-yellow);
+    color: #fff;
+    box-shadow: 0 6px 15px rgba(251, 133, 0, 0.4);
+}
+
+/* Main Content Container */
+.content-container {
+    z-index: 10;
+    width: 100%;
+    max-width: 900px;
+    padding: 1rem;
+    flex: 1;
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10deg); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Card Boxes */
+.card-box {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    text-align: center;
+}
+
+.card-box h2 {
+    font-family: var(--font-heading);
+    font-size: 2.3rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.instruction {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Button Styles */
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-yellow), var(--dark-yellow));
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.4rem;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(251, 133, 0, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 18px rgba(251, 133, 0, 0.45);
+}
+
+.btn-secondary {
+    background: #ffffff;
+    color: var(--dark-yellow);
+    border: 2px solid var(--dark-yellow);
+    padding: 0.7rem 1.3rem;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: var(--light-yellow);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--text-muted);
+    padding: 0.6rem 1rem;
+    border-radius: 25px;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 0.88rem;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+/* ==========================================
+   EXPERIENCIA 1: RAMO VIRTUAL
+   ========================================== */
+
+.builder-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.flower-selector {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.add-flower-btn {
+    background: var(--light-yellow);
+    border: 1px solid var(--primary-yellow);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.add-flower-btn:hover {
+    background: var(--primary-yellow);
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+}
+
+.bouquet-wrapper {
+    position: relative;
+    height: 380px;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    background: radial-gradient(circle, rgba(255, 243, 176, 0.4) 0%, rgba(255, 255, 255, 0) 70%);
+    border-radius: 50%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: visible;
+}
+
+.vase {
+    width: 90px;
+    height: 120px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    border-radius: 10px 10px 30px 30px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    position: absolute;
+    bottom: 10px;
+    z-index: 2;
+    backdrop-filter: blur(4px);
+}
+
+.ribbon-wrap {
+    position: absolute;
+    bottom: 95px;
+    z-index: 5;
+    font-size: 2.2rem;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
+}
+
+.bouquet-display {
+    position: absolute;
+    bottom: 90px;
+    width: 100%;
+    height: 260px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: 3;
+}
+
+.flower-item-svg {
+    position: absolute;
+    bottom: 0;
+    transform-origin: bottom center;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: popIn 0.4s ease-out;
+}
+
+@keyframes popIn {
+    0% { transform: scale(0) rotate(0deg); opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* ==========================================
+   EXPERIENCIA 2: JARDÍN DE RAZONES
+   ========================================== */
+
+.progress-container {
+    max-width: 450px;
+    margin: 0 auto 1.5rem auto;
+}
+
+#progress-text {
+    font-weight: 600;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.progress-bar-bg {
+    background: #e9ecef;
+    border-radius: 10px;
+    height: 12px;
+    width: 100%;
+    margin-top: 0.4rem;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    background: linear-gradient(90deg, var(--primary-yellow), var(--dark-yellow));
+    height: 100%;
+    width: 0%;
+    transition: width 0.4s ease;
+}
+
+.garden-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.2rem;
+    margin-top: 1.5rem;
+}
+
+.garden-card {
+    background: #ffffff;
+    border: 2px dashed var(--primary-yellow);
+    border-radius: 18px;
+    padding: 1.5rem 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 170px;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+}
+
+.garden-card:hover {
+    transform: translateY(-5px);
+    border-style: solid;
+    box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+.garden-card.bloomed {
+    background: linear-gradient(135deg, #ffffff, var(--light-yellow));
+    border: 2px solid var(--dark-yellow);
+}
+
+.flower-bud {
+    font-size: 3rem;
+    transition: transform 0.5s ease;
+}
+
+.garden-card.bloomed .flower-bud {
+    animation: spinBloom 0.6s ease-out;
+}
+
+@keyframes spinBloom {
+    0% { transform: scale(0.5) rotate(-45deg); }
+    50% { transform: scale(1.2) rotate(15deg); }
+    100% { transform: scale(1) rotate(0deg); }
+}
+
+.reason-text {
+    margin-top: 0.8rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--text-color);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.garden-card.bloomed .reason-text {
+    opacity: 1;
+}
+
+.final-surprise {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #fff3b0, #ffeaa7);
+    border-radius: 18px;
+    border: 2px solid var(--dark-yellow);
+    animation: zoomIn 0.5s ease-out;
+}
+
+.final-surprise.hidden {
+    display: none;
+}
+
+.surprise-badge {
+    font-weight: 700;
+    color: var(--dark-yellow);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+}
+
+/* ==========================================
+   EXPERIENCIA 3: TARJETA MUSICAL & FOTOS POLAROID
+   ========================================== */
+
+.music-player {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    background: linear-gradient(135deg, #fffef5, #fff3b0);
+    padding: 1.2rem 2rem;
+    border-radius: 50px;
+    max-width: 500px;
+    margin: 0 auto 2rem auto;
+    box-shadow: 0 6px 15px rgba(251, 133, 0, 0.15);
+    border: 1px solid var(--primary-yellow);
+}
+
+.disc-container {
+    width: 60px;
+    height: 60px;
+}
+
+.vinyl {
+    width: 60px;
+    height: 60px;
+    background: #2b2b2b;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.8rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.vinyl.playing {
+    animation: rotateVinyl 3s linear infinite;
+}
+
+@keyframes rotateVinyl {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.player-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+}
+
+.youtube-container {
+    max-width: 500px;
+    margin: 0 auto 2rem auto;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(251, 133, 0, 0.25);
+    border: 2px solid var(--primary-yellow);
+    aspect-ratio: 16 / 9;
+}
+
+.youtube-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.song-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-color);
+}
+
+.polaroid-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.2rem;
+}
+
+.polaroid-card {
+    height: 240px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.polaroid-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    border-radius: 12px;
+}
+
+.polaroid-card:hover .polaroid-inner,
+.polaroid-card.flipped .polaroid-inner {
+    transform: rotateY(180deg);
+}
+
+.polaroid-front, .polaroid-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #eee;
+}
+
+.photo-placeholder {
+    width: 100%;
+    height: 140px;
+    background: linear-gradient(135deg, #fff3b0, #ffeaa7);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5rem;
+}
+
+.photo-caption {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    color: var(--text-color);
+    margin-top: 0.4rem;
+}
+
+.polaroid-back {
+    transform: rotateY(180deg);
+    background: var(--light-yellow);
+    justify-content: center;
+    color: var(--text-color);
+    font-size: 0.92rem;
+    line-height: 1.4;
+    padding: 1.2rem;
+}
+
+/* ==========================================
+   EXPERIENCIA 4: CONTADOR DE TIEMPO & HISTORIA
+   ========================================== */
+
+.date-picker-box {
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.date-picker-box input {
+    padding: 0.4rem 0.8rem;
+    border-radius: 12px;
+    border: 1px solid var(--primary-yellow);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    outline: none;
+    margin-left: 0.5rem;
+}
+
+.timer-display {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.timer-unit {
+    background: linear-gradient(135deg, #ffffff, var(--light-yellow));
+    border: 2px solid var(--primary-yellow);
+    border-radius: 16px;
+    padding: 1rem 0.8rem;
+    min-width: 80px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.timer-unit span {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--dark-yellow);
+    display: block;
+    line-height: 1;
+}
+
+.timer-unit label {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: 0.3rem;
+    display: block;
+}
+
+.timeline-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.timeline {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 20px;
+    width: 3px;
+    background: var(--primary-yellow);
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 55px;
+    margin-bottom: 1.8rem;
+}
+
+.timeline-icon {
+    position: absolute;
+    left: 4px;
+    top: 0;
+    width: 35px;
+    height: 35px;
+    background: var(--light-yellow);
+    border: 2px solid var(--dark-yellow);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    z-index: 2;
+}
+
+.timeline-content h4 {
+    color: var(--dark-yellow);
+    font-size: 1.1rem;
+}
+
+.timeline-content p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-top: 0.2rem;
+}
+
+/* ==========================================
+   EXPERIENCIA 5: QUIZ DE FLOR AMARILLA
+   ========================================== */
+
+#quiz-question-box {
+    text-align: left;
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+.question-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+    color: var(--text-color);
+}
+
+.quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.quiz-opt-btn {
+    background: #ffffff;
+    border: 2px solid #eee;
+    padding: 0.9rem 1.2rem;
+    border-radius: 14px;
+    text-align: left;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--text-color);
+}
+
+.quiz-opt-btn:hover {
+    border-color: var(--primary-yellow);
+    background: var(--light-yellow);
+    transform: translateX(4px);
+}
+
+.quiz-result {
+    margin-top: 1rem;
+    animation: fadeIn 0.5s ease;
+}
+
+.quiz-result.hidden {
+    display: none;
+}
+
+.result-badge {
+    font-size: 4.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.result-description {
+    color: var(--text-muted);
+    margin: 0.8rem 0 1.5rem 0;
+    font-size: 1rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ==========================================
+   MODAL DE CARTA
+   ========================================== */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    position: relative;
+    z-index: 101;
+    background: #fffef5;
+    border: 3px solid var(--primary-yellow);
+    border-radius: 24px;
+    padding: 2rem;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-muted);
+}
+
+.envelope .letter h2 {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    color: var(--dark-yellow);
+    margin-bottom: 1rem;
+}
+
+.typed-text {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    background: var(--light-yellow);
+    padding: 1rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    min-height: 80px;
+}
+
+.edit-card-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    text-align: left;
+}
+
+.edit-card-box label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.edit-card-box textarea {
+    font-family: var(--font-body);
+    padding: 0.8rem;
+    border-radius: 10px;
+    border: 1px solid var(--primary-yellow);
+    resize: vertical;
+    min-height: 70px;
+    outline: none;
+}
+
+/* Footer */
+.app-footer {
+    z-index: 10;
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* Responsiveness */
+@media (max-width: 600px) {
+    .logo h1 { font-size: 2.3rem; }
+    .tab-btn { font-size: 0.85rem; padding: 0.5rem 0.8rem; }
+    .timer-display { gap: 0.4rem; }
+    .timer-unit { min-width: 65px; padding: 0.8rem 0.4rem; }
+    .timer-unit span { font-size: 1.5rem; }
+}

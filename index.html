@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flores Amarillas 🌻 | Regalo Especial</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Welcome Overlay Popup -->
+    <div id="welcome-modal" class="welcome-overlay">
+        <div class="welcome-card">
+            <div class="welcome-flower-icon">🌻</div>
+            <h2>¡Tienes una sorpresa especial! 💛</h2>
+            <p>Toca el botón para abrir tu regalo de Flores Amarillas y reproducir la música de fondo.</p>
+            <button id="welcome-start-btn" class="welcome-btn">✨ Haz clic aquí para Abrir ✨</button>
+        </div>
+    </div>
+
+    <!-- Background Canvas for Falling Petals -->
+    <canvas id="petalsCanvas"></canvas>
+
+
+    <!-- Header & Navigation -->
+    <header class="app-header">
+        <div class="logo">
+            <span class="sunflower-icon">🌻</span>
+            <h1>Flores Amarillas</h1>
+        </div>
+        <p class="subtitle">¡Un regalo especial para iluminar tu día!</p>
+        
+        <nav class="nav-tabs">
+            <button class="tab-btn active" data-tab="tab-ramo">🌻 1. Ramo Virtual</button>
+            <button class="tab-btn" data-tab="tab-jardin">💌 2. Jardín Secreto</button>
+            <button class="tab-btn" data-tab="tab-musica">🎵 3. Tarjeta & Fotos</button>
+            <button class="tab-btn" data-tab="tab-contador">⏳ 4. Contador & Historia</button>
+        </nav>
+    </header>
+
+    <main class="content-container">
+
+        <!-- EXPERIENCIA 1: RAMO VIRTUAL -->
+        <section id="tab-ramo" class="tab-content active">
+            <div class="card-box">
+                <h2>🌻 Diseña tu Ramo de Flores Amarillas</h2>
+                <p class="instruction">Selecciona tus flores favoritas para armar un ramo personalizado y dedícale un hermoso mensaje.</p>
+                
+                <div class="builder-controls">
+                    <label>Elige flores para agregar:</label>
+                    <div class="flower-selector">
+                        <button class="add-flower-btn" data-type="girasol">🌻 Girasol</button>
+                        <button class="add-flower-btn" data-type="tulipan">🌷 Tulipán Amarillo</button>
+                        <button class="add-flower-btn" data-type="margarita">🌼 Margarita</button>
+                        <button class="add-flower-btn" data-type="rosa">🌹 Rosa Amarilla</button>
+                    </div>
+                    <div class="action-buttons">
+                        <button id="btn-shower" class="btn-primary">✨ Lluvia de Pétalos</button>
+                        <button id="btn-open-card" class="btn-secondary">✉️ Ver Carta de Dedicatoria</button>
+                        <button id="btn-reset-bouquet" class="btn-outline">🔄 Reiniciar Ramo</button>
+                    </div>
+                </div>
+
+                <!-- Display area for the bouquet -->
+                <div class="bouquet-wrapper">
+                    <div class="ribbon-wrap">🎀</div>
+                    <div id="bouquet-display" class="bouquet-display">
+                        <!-- SVGs inserted dynamically via JS -->
+                    </div>
+                    <div class="vase"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCIA 2: JARDÍN DE RAZONES -->
+        <section id="tab-jardin" class="tab-content">
+            <div class="card-box">
+                <h2>💌 Jardín de Razones Especiales</h2>
+                <p class="instruction">Haz clic en cada girasol para hacerlo florecer y descubrir una razón secreta de por qué eres tan especial.</p>
+
+                <div class="progress-container">
+                    <span id="progress-text">Flores descubiertas: 0 de 6</span>
+                    <div class="progress-bar-bg">
+                        <div id="progress-bar-fill" class="progress-bar-fill"></div>
+                    </div>
+                </div>
+
+                <div id="garden-grid" class="garden-grid">
+                    <!-- Dynamic Garden Items -->
+                </div>
+
+                <div id="garden-final-msg" class="final-surprise hidden">
+                    <div class="surprise-badge">✨ ¡Felicidades! ✨</div>
+                    <h3>"Un día sin ti es como un jardín sin sol. ¡Gracias por iluminar mi vida con tus flores amarillas!" 🌻💛</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCIA 3: TARJETA MUSICAL & FOTOS POLAROID -->
+        <section id="tab-musica" class="tab-content">
+            <div class="card-box">
+                <h2>🎵 Tarjeta Musical & Recuerdos Polaroid</h2>
+                <p class="instruction">Haz clic en el reproductor para escuchar música romántica y toca cada foto Polaroid para girarla y leer el mensaje al reverso.</p>
+
+                <!-- Music Player Component -->
+                <div class="music-player">
+                    <div class="disc-container">
+                        <div id="vinyl-disc" class="vinyl">🌻</div>
+                    </div>
+                    <div class="player-controls">
+                        <span class="song-title">🎶 Flores Amarillas - Floricienta</span>
+                        <div class="audio-buttons">
+                            <button id="btn-play-music" class="btn-primary">▶️ Reproducir "Flores Amarillas"</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Native Audio Element Fallback -->
+                <audio id="local-audio" src="musica.mp3" loop></audio>
+
+                <!-- Embedded YouTube Container -->
+                <div class="youtube-container">
+                    <iframe id="yt-player-frame" 
+                        src="https://www.youtube.com/embed/S7gMzYqXIZc?enablejsapi=1&autoplay=1&loop=1&playlist=S7gMzYqXIZc" 
+                        title="Floricienta - Flores Amarillas" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <!-- Polaroid Gallery -->
+                <div class="polaroid-grid">
+                    <div class="polaroid-card">
+                        <div class="polaroid-inner">
+                            <div class="polaroid-front">
+                                <div class="photo-placeholder photo-1">🌻</div>
+                                <p class="photo-caption">Tu Sonrisa Radiante</p>
+                            </div>
+                            <div class="polaroid-back">
+                                <p>"Tu sonrisa ilumina los días más grises, igual que un girasol busca el sol."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="polaroid-card">
+                        <div class="polaroid-inner">
+                            <div class="polaroid-front">
+                                <div class="photo-placeholder photo-2">✨</div>
+                                <p class="photo-caption">Momentos Mágicos</p>
+                            </div>
+                            <div class="polaroid-back">
+                                <p>"Cada instante a tu lado se convierte en un recuerdo dorado que guardo en el corazón."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="polaroid-card">
+                        <div class="polaroid-inner">
+                            <div class="polaroid-front">
+                                <div class="photo-placeholder photo-3">💛</div>
+                                <p class="photo-caption">Detalles Únicos</p>
+                            </div>
+                            <div class="polaroid-back">
+                                <p>"Las flores amarillas representan la amistad sincera, la alegría y el amor puro."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="polaroid-card">
+                        <div class="polaroid-inner">
+                            <div class="polaroid-front">
+                                <div class="photo-placeholder photo-4">🌟</div>
+                                <p class="photo-caption">Siempre Juntos</p>
+                            </div>
+                            <div class="polaroid-back">
+                                <p>"Prometo estar siempre para sacarte una sonrisa y regalarte mil flores más."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCIA 4: CONTADOR DE TIEMPO & HISTORIA -->
+        <section id="tab-contador" class="tab-content">
+            <div class="card-box">
+                <h2>⏳ Nuestro Tiempo & Cronología</h2>
+                <p class="instruction">Mira cuánto tiempo ha pasado creando recuerdos inolvidables juntos.</p>
+
+                <!-- Date Config -->
+                <div class="date-picker-box">
+                    <label for="start-date-input">Fecha especial de inicio:</label>
+                    <input type="date" id="start-date-input" value="2024-01-01">
+                </div>
+
+                <!-- Timer Counter -->
+                <div class="timer-display">
+                    <div class="timer-unit">
+                        <span id="timer-days">0</span>
+                        <label>Días</label>
+                    </div>
+                    <div class="timer-unit">
+                        <span id="timer-hours">0</span>
+                        <label>Horas</label>
+                    </div>
+                    <div class="timer-unit">
+                        <span id="timer-minutes">0</span>
+                        <label>Minutos</label>
+                    </div>
+                    <div class="timer-unit">
+                        <span id="timer-seconds">0</span>
+                        <label>Segundos</label>
+                    </div>
+                </div>
+
+                <h3 class="timeline-title">📜 Nuestra Historia en Flores</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-icon">🌱</div>
+                        <div class="timeline-content">
+                            <h4>El Comienzo</h4>
+                            <p>El día que nos conocimos y todo comenzó a llenarse de luz y color.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">🌼</div>
+                        <div class="timeline-content">
+                            <h4>Primer Gran Recuerdo</h4>
+                            <p>Risas compartidas, charlas interminables y momentos que marcaron el camino.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">🌻</div>
+                        <div class="timeline-content">
+                            <h4>Hoy - Día de Flores Amarillas</h4>
+                            <p>Celebrando la alegría de tenerte cerca con este regalo hecho especialmente para ti.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <!-- Modal for Dedication Card -->
+    <div id="card-modal" class="modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close-btn">&times;</button>
+            <div class="envelope">
+                <div class="letter">
+                    <h2>✉️ Carta Especial de Flores Amarillas</h2>
+                    <p id="typed-text" class="typed-text"></p>
+                    <div class="edit-card-box">
+                        <label>Escribe o edita tu mensaje:</label>
+                        <textarea id="custom-card-input">"Hoy 21 de septiembre te entrego estas flores amarillas virtuales con todo mi cariño. Que nunca falte la luz, la alegría y la magia en tus días. ¡Eres una persona sumamente especial!"</textarea>
+                        <button id="btn-save-message" class="btn-primary">💾 Aplicar Mensaje</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="app-footer">
+        <p>Hecho con 💛 y 🌻 para el Día de las Flores Amarillas | Septiembre 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
