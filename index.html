@@ -33,8 +33,7 @@
         <nav class="nav-tabs">
             <button class="tab-btn active" data-tab="tab-ramo">🌻 1. Ramo Virtual</button>
             <button class="tab-btn" data-tab="tab-jardin">💌 2. Jardín Secreto</button>
-            <button class="tab-btn" data-tab="tab-musica">🎵 3. Tarjeta & Fotos</button>
-            <button class="tab-btn" data-tab="tab-contador">⏳ 4. Contador & Historia</button>
+            <button class="tab-btn" data-tab="tab-musica">🎵 3. Tarjetas</button>
         </nav>
     </header>
 
@@ -99,7 +98,7 @@
         <!-- EXPERIENCIA 3: TARJETA MUSICAL & FOTOS POLAROID -->
         <section id="tab-musica" class="tab-content">
             <div class="card-box">
-                <h2>🎵 Tarjeta Musical & Recuerdos Polaroid</h2>
+                <h2>🎵 Tarjetas</h2>
                 <p class="instruction">Haz clic en el reproductor para escuchar música romántica y toca cada foto Polaroid para girarla y leer el mensaje al reverso.</p>
 
                 <!-- Music Player Component -->
@@ -115,14 +114,8 @@
                     </div>
                 </div>
 
-                <!-- Hidden Audio Sources -->
-                <audio id="local-audio" src="musica.mp3" loop></audio>
-                <iframe id="yt-player-frame" 
-                    src="https://www.youtube.com/embed/S7gMzYqXIZc?enablejsapi=1&autoplay=1&loop=1&playlist=S7gMzYqXIZc" 
-                    title="Floricienta - Flores Amarillas" 
-                    style="position: absolute; width: 0; height: 0; border: 0; opacity: 0; pointer-events: none;"
-                    allow="autoplay">
-                </iframe>
+                <!-- Local Audio Player -->
+                <audio id="local-audio" src="Floricienta — Flores Amarillas [Letra].mp3" loop></audio>
 
                 <!-- Polaroid Gallery -->
                 <div class="polaroid-grid">
@@ -177,64 +170,6 @@
             </div>
         </section>
 
-        <!-- EXPERIENCIA 4: CONTADOR DE TIEMPO & HISTORIA -->
-        <section id="tab-contador" class="tab-content">
-            <div class="card-box">
-                <h2>⏳ Nuestro Tiempo & Cronología</h2>
-                <p class="instruction">Mira cuánto tiempo ha pasado creando recuerdos inolvidables juntos.</p>
-
-                <!-- Date Config -->
-                <div class="date-picker-box">
-                    <label for="start-date-input">Fecha especial de inicio:</label>
-                    <input type="date" id="start-date-input" value="2024-01-01">
-                </div>
-
-                <!-- Timer Counter -->
-                <div class="timer-display">
-                    <div class="timer-unit">
-                        <span id="timer-days">0</span>
-                        <label>Días</label>
-                    </div>
-                    <div class="timer-unit">
-                        <span id="timer-hours">0</span>
-                        <label>Horas</label>
-                    </div>
-                    <div class="timer-unit">
-                        <span id="timer-minutes">0</span>
-                        <label>Minutos</label>
-                    </div>
-                    <div class="timer-unit">
-                        <span id="timer-seconds">0</span>
-                        <label>Segundos</label>
-                    </div>
-                </div>
-
-                <h3 class="timeline-title">📜 Nuestra Historia en Flores</h3>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-icon">🌱</div>
-                        <div class="timeline-content">
-                            <h4>El Comienzo</h4>
-                            <p>El día que nos conocimos y todo comenzó a llenarse de luz y color.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-icon">🌼</div>
-                        <div class="timeline-content">
-                            <h4>Primer Gran Recuerdo</h4>
-                            <p>Risas compartidas, charlas interminables y momentos que marcaron el camino.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-icon">🌻</div>
-                        <div class="timeline-content">
-                            <h4>Hoy - Día de Flores Amarillas</h4>
-                            <p>Celebrando la alegría de tenerte cerca con este regalo hecho especialmente para ti.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
 
     </main>

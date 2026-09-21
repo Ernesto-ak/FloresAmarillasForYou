@@ -291,11 +291,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ==========================================
-    // EXPERIENCIA 3: MÚSICA & FOTOS POLAROID (YouTube Player Integration)
+    // EXPERIENCIA 3: MÚSICA & FOTOS POLAROID (Local MP3 Integration)
     // ==========================================
     const btnPlayMusic = document.getElementById('btn-play-music');
     const vinylDisc = document.getElementById('vinyl-disc');
-    const ytFrame = document.getElementById('yt-player-frame');
     const localAudio = document.getElementById('local-audio');
     let isPlaying = false;
 
@@ -304,11 +303,8 @@ document.addEventListener('DOMContentLoaded', () => {
             isPlaying = true;
             vinylDisc?.classList.add('playing');
             if (btnPlayMusic) btnPlayMusic.textContent = '⏸️ Pausar "Flores Amarillas"';
-            if (ytFrame && ytFrame.contentWindow) {
-                ytFrame.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-            }
             if (localAudio) {
-                localAudio.play().catch(() => {});
+                localAudio.play().catch(err => console.log('Audio play error:', err));
             }
         }
     }
@@ -318,9 +314,6 @@ document.addEventListener('DOMContentLoaded', () => {
             isPlaying = false;
             vinylDisc?.classList.remove('playing');
             if (btnPlayMusic) btnPlayMusic.textContent = '▶️ Reproducir "Flores Amarillas"';
-            if (ytFrame && ytFrame.contentWindow) {
-                ytFrame.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
-            }
             if (localAudio) {
                 localAudio.pause();
             }
@@ -362,41 +355,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ==========================================
-    // EXPERIENCIA 4: CONTADOR DE TIEMPO
-    // ==========================================
-    const startDateInput = document.getElementById('start-date-input');
-    const timerDays = document.getElementById('timer-days');
-    const timerHours = document.getElementById('timer-hours');
-    const timerMinutes = document.getElementById('timer-minutes');
-    const timerSeconds = document.getElementById('timer-seconds');
-
-    function updateTimer() {
-        const startDate = new Date(startDateInput.value + 'T00:00:00');
-        const now = new Date();
-        const diff = now - startDate;
-
-        if (diff > 0) {
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-            const minutes = Math.floor((diff / (1000 * 60)) % 60);
-            const seconds = Math.floor((diff / 1000) % 60);
-
-            timerDays.textContent = days;
-            timerHours.textContent = hours;
-            timerMinutes.textContent = minutes;
-            timerSeconds.textContent = seconds;
-        } else {
-            timerDays.textContent = 0;
-            timerHours.textContent = 0;
-            timerMinutes.textContent = 0;
-            timerSeconds.textContent = 0;
-        }
-    }
-
-    startDateInput?.addEventListener('change', updateTimer);
-    setInterval(updateTimer, 1000);
-    updateTimer();
 
 
 });
