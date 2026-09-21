@@ -209,12 +209,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnOpenCard = document.getElementById('btn-open-card');
     const modalCloseBtn = document.getElementById('modal-close-btn');
     const typedTextEl = document.getElementById('typed-text');
-    const customCardInput = document.getElementById('custom-card-input');
-    const btnSaveMessage = document.getElementById('btn-save-message');
 
-    let currentMessage = customCardInput.value;
+    const defaultMessage = `"Hoy 21 de septiembre te entrego estas flores amarillas virtuales con todo mi cariño. Que nunca falte la luz, la alegría y la magia en tus días. ¡Eres una persona sumamente especial!"`;
 
     function typeWriter(text) {
+        if (!typedTextEl) return;
         typedTextEl.textContent = '';
         let index = 0;
         const speed = 25;
@@ -230,18 +229,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     btnOpenCard?.addEventListener('click', () => {
-        cardModal.classList.remove('hidden');
-        typeWriter(currentMessage);
+        cardModal?.classList.remove('hidden');
+        typeWriter(defaultMessage);
     });
 
     modalCloseBtn?.addEventListener('click', () => {
-        cardModal.classList.add('hidden');
+        cardModal?.classList.add('hidden');
     });
 
-    btnSaveMessage?.addEventListener('click', () => {
-        currentMessage = customCardInput.value;
-        typeWriter(currentMessage);
-    });
 
     // ==========================================
     // EXPERIENCIA 2: JARDÍN DE RAZONES
